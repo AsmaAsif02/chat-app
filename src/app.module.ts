@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MessagesGateway } from './app.gateway';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ChatsModule } from './chats/chats.module';
 import { AuthModule } from './auth/auth.module';
 import { MessagesModule } from './messages/messages.module';
 
@@ -15,6 +16,7 @@ import { MessagesModule } from './messages/messages.module';
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.CHAT_DB),
     UsersModule,
+    ChatsModule,
     AuthModule,
     MessagesModule,
   ],
