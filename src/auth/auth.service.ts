@@ -10,6 +10,9 @@ import { LoginUserDto } from '../auth/dto/login-user.dto';
 import { RegisterUserDto } from '../auth/dto/register-user.dto';
 import * as bcrypt from 'bcrypt';
 
+/**
+ * Service to handle authentication-related business logic.
+ */
 @Injectable()
 export class AuthService {
   constructor(
@@ -17,6 +20,12 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+   /**
+   * Validates a user's credentials.
+   * @param email - The user's email.
+   * @param password - The user's password.
+   * @returns The user if validation is successful, otherwise throws an exception.
+   */
   async validateUser(email, password): Promise<any> {
     const user = await this.usersService.findOne(email);
     if (!user) {
@@ -29,6 +38,11 @@ export class AuthService {
     }
   }
 
+   /**
+   * Logs in a user and returns a JWT token.
+   * @param loginUserDto - DTO containing user login details.
+   * @returns The access token.
+   */
   async login(loginUserDto: LoginUserDto) {
     const user = await this.validateUser(
       loginUserDto.email,
@@ -46,6 +60,11 @@ export class AuthService {
     }
   }
 
+   /**
+   * Registers a new user and returns a JWT token.
+   * @param registerUserDto - DTO containing user registration details.
+   * @returns The access token.
+   */
   async register(registerUserDto: RegisterUserDto) {
     const user = await this.usersService.findOne(registerUserDto.email);
     if (user) {
