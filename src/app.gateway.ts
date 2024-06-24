@@ -36,10 +36,26 @@ export class MessagesGateway implements OnGatewayConnection, OnGatewayDisconnect
     @ConnectedSocket() client: Socket,
     @MessageBody() payload: CreateMessageDto,
   ): Promise<void> {
-    await this.messagesService.createMessage(payload);
-    const receiverSocketId = this.users.get(payload.receiver_id);
-    if (receiverSocketId) {
-      this.server.to(receiverSocketId).emit('response_message', payload);
+    try {
+      const createdMessage = await this.messagesService.createMessage(payload);
+      const receiverSocketId = this.users.get(payload.receiver_id);
+
+      console.log("Message from App Gateway file to test ", payload.message);
+
+      const responsePayload = {
+        status: 'success',
+        data: createdMessage,
+      };
+      if (receiverSocketId) {
+        this.server.to(receiverSocketId).emit('response_message', responsePayload);
+      }
+      client.emit('response_message', responsePayload);
+    } catch (error) {
+      const errorResponse = {
+        status: 'error',
+        message: error.message,
+      };
+      client.emit('response_message', errorResponse);
     }
   }
 }

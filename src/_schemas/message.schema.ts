@@ -20,6 +20,15 @@ export class Message {
   @Prop({ ref: 'User', type: SchemaTypes.ObjectId })
   sender_id: ObjectId;
 
+
+ /**
+   *Object ID of the user who received the message.
+   * References the User schema.
+   */
+   @Prop({ ref: 'User', type: SchemaTypes.ObjectId })
+   receiver_id: ObjectId;
+
+
    /**
    * Content of the message.
    */
