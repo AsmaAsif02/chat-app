@@ -56,7 +56,18 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# To run the user.service.spec.test
+$ npm test src/users/users.service.spec.ts
+
+# To run all tests 
+$ npm test
 ```
+
+
+
+
+
 
 ## Support
 
