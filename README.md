@@ -57,8 +57,15 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 
-# To run the user.service.spec.test
+# To run the users.service.spec.test
 $ npm test src/users/users.service.spec.ts
+
+# To run the messages.service.spec.test
+$ npm test src/messages/messages.service.spec.ts
+
+# To run the chats.service.spec.test
+$ npm test src/chats/chats.service.spec.ts
+
 
 # To run all tests 
 $ npm test
