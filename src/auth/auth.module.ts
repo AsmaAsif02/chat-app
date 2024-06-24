@@ -8,6 +8,9 @@ import { JwtStategy } from './jwt.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 
+/**
+ * Module to handle authentication.
+ */
 @Module({
   imports: [
     AuthModule,

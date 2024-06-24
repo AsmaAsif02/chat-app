@@ -10,6 +10,11 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 export class ChatsController {
   constructor(private readonly chatsService: ChatsService) {}
 
+  /**
+   * Endpoint to create a new chat.
+   * @param createChatDto - DTO containing chat details.
+   * @returns The created chat.
+   */
   @UseGuards(JwtAuthGuard)
   @Post('create-chat')
   @ApiResponse({
@@ -20,6 +25,11 @@ export class ChatsController {
     return await this.chatsService.createChat(createChatDto);
   }
 
+  /**
+   * Endpoint to get all chats by user ID.
+   * @param id - The user ID.
+   * @returns All chats for the given user ID.
+   */
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   async getAllChatsByUserId(@Param(':id') id: string) {
