@@ -66,6 +66,8 @@ $ npm test src/messages/messages.service.spec.ts
 # To run the chats.service.spec.test
 $ npm test src/chats/chats.service.spec.ts
 
+#To run the app gateway test 
+$  npm test src/app.gateway.spec.ts
 
 # To run all tests 
 $ npm test

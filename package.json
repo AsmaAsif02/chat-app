@@ -20,8 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "test:user": "jest src/users/users.service.spec.ts",
     "test:messages": "jest src/messages/messages.service.spec.ts",
-     "test:chats": "jest src/chats/chats.service.spec.ts"
-    },
+    "test:chats": "jest src/chats/chats.service.spec.ts",
+    "test:app.gateway": "jest src/app.gateway.spec.ts"
+  },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.2.2",
@@ -44,7 +45,8 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -86,5 +88,4 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
-
 }
