@@ -30,6 +30,11 @@
 
 ```bash
 $ npm install
+
+#To install all packages in package.json file. Run command:
+
+$ npm i
+
 ```
 
 ## Running the app
@@ -73,8 +78,42 @@ $  npm test src/app.gateway.spec.ts
 $ npm test
 ```
 
+## Git
 
+```
+#Created repository for chat app
 
+#Cloned this git repostory in local repo
+
+#Created Features Branches in VS code, commited branches and created PRs for each branch 
+and merged it with main.
+
+#Then pulled each time the new main code from git after deleting the branch post merging.
+
+#Pull command
+
+$ git pull origin main
+```
+
+## Swagger API Documentation
+```
+#  To access the API documentation use URL: http://localhost:3000/api/
+```
+
+## API Endpoints
+```
+#  Register a user by providing an email and password. The email and hashed password are stored in MongoDB. A JWT token is generated upon successful registration.
+
+# Authenticate and login a registered user. Returns a JWT token for accessing protected endpoints.
+
+# Each endpoint Authorization: Bearer Token (JWT token)
+
+# Create a new chat by providing the Object IDs of two users in the members array.
+
+#  Post a message by providing the chat ID, receiver ID, sender ID, and message content. The message will be added to the specified chat.
+
+# Retrieve all messages for a specific chat ID. Includes timestamps and sender information for each message.
+```
 
 
 
